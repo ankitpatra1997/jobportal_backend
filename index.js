@@ -4,7 +4,6 @@ const fileUpload = require('express-fileupload');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const jwt = require('helpers/jwt');
 const errorHandler = require('helpers/errorHandler');
 const config = require('config.json');
 
@@ -15,15 +14,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 
-// use JWT auth to secure the api
-app.use(jwt());
-
 // api routes
 app.use('/users', require('./controllers/users/user.controller'));
-app.use('/hotels',require('./controllers/hotels/hotel.controller'));
-app.use('/coupons',require('./controllers/coupons/coupon.controller'));
-app.use('/ads',require('./controllers/advertise/advertise.controller'));
-app.use('/orders',require('./controllers/orders/order.controller'));
 
 // Upload Files
 app.use(fileUpload());
