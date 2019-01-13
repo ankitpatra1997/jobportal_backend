@@ -11,7 +11,7 @@ const schema = new Schema({
 		unique: true,
 		required: true
 	},
-	createdData: {
+	createdDate: {
 		type: Date,
 		default: Date.now,
 		required: false
@@ -29,3 +29,5 @@ const schema = new Schema({
 schema.set("toJSON", {
 	virtuals: true
 });
+
+module.exports = mongoose.model("User", schema);
